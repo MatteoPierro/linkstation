@@ -1,0 +1,34 @@
+{
+  "name": "linkstation",
+  "version": "1.0.0",
+  "description": "## Description Write a program that solves the most suitable (with most power) link station for a device at given point [x,y].",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "start": "npm run build && node dist/index.js",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatteoPierro/linkstation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatteoPierro/linkstation/issues"
+  },
+  "homepage": "https://github.com/MatteoPierro/linkstation#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/node": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.0.1"
+  }
+}
