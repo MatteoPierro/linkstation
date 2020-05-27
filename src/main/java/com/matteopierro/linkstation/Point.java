@@ -1,5 +1,8 @@
 package com.matteopierro.linkstation;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 public class Point {
     private final int x;
     private final int y;
@@ -10,6 +13,11 @@ public class Point {
     }
 
     public Distance distanceFrom(Point anotherPoint) {
-        return new Distance(1.41);
+        var distance = sqrt(square(x - anotherPoint.x) + square(y - anotherPoint.y));
+        return new Distance(distance);
+    }
+
+    private static double square(int number) {
+        return pow(number, 2);
     }
 }
