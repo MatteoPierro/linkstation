@@ -16,7 +16,7 @@ public class DeviceTest {
 
     @Test
     void needs_a_position() {
-        assertThatThrownBy( () -> new Device(null))
+        assertThatThrownBy(() -> new Device(null))
                 .isInstanceOf(NullPointerException.class);
     }
 

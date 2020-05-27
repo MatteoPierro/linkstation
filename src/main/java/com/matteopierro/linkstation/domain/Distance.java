@@ -4,13 +4,17 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 
 import java.math.BigDecimal;
 
+import static org.apache.commons.lang3.Validate.isTrue;
 import static java.math.RoundingMode.HALF_UP;
 
 public class Distance {
     private final BigDecimal value;
 
     public Distance(double value) {
-        this.value = new BigDecimal(value).setScale(2, HALF_UP);
+        BigDecimal v = new BigDecimal(value).setScale(2, HALF_UP);
+        isTrue(v.compareTo(BigDecimal.ZERO) >= 0);
+
+        this.value = v;
     }
 
     @Override
