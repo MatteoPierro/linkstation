@@ -4,6 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 
 import java.math.BigDecimal;
 
+import static java.math.BigDecimal.ZERO;
 import static org.apache.commons.lang3.Validate.isTrue;
 import static java.math.RoundingMode.HALF_UP;
 
@@ -11,8 +12,8 @@ public class Distance {
     private final BigDecimal value;
 
     public Distance(double value) {
-        BigDecimal v = new BigDecimal(value).setScale(2, HALF_UP);
-        isTrue(v.compareTo(BigDecimal.ZERO) >= 0);
+        var v = new BigDecimal(value).setScale(2, HALF_UP);
+        isTrue(v.compareTo(ZERO) >= 0);
 
         this.value = v;
     }
