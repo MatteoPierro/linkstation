@@ -25,7 +25,6 @@ public class Distance {
         if (!(o instanceof Distance)) return false;
 
         Distance distance = (Distance) o;
-
         return new EqualsBuilder().append(value, distance.value).isEquals();
     }
 
