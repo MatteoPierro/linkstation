@@ -6,6 +6,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.math.BigDecimal;
 
 import static java.math.RoundingMode.HALF_UP;
+import static org.apache.commons.lang3.Validate.isTrue;
+import static org.apache.commons.lang3.Validate.notNull;
 
 public class Power {
     public static final Power ZERO = new Power(BigDecimal.ZERO);
@@ -14,7 +16,11 @@ public class Power {
     private final BigDecimal value;
 
     public Power(BigDecimal value) {
-        this.value = value.setScale(SCALE, HALF_UP);
+        notNull(value);
+        var v = value.setScale(SCALE, HALF_UP);
+        isTrue(v.compareTo(BigDecimal.ZERO) >= 0);
+
+        this.value = v;
     }
 
     @Override

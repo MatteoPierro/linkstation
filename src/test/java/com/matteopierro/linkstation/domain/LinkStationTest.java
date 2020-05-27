@@ -11,8 +11,8 @@ public class LinkStationTest {
 
     @Test
     void power_is_zero_when_device_distance_is_greater_than_station_reach() {
-        var station = new LinkStation(point(10, 10), new Reach(2.23));
-        var device = new Device(point(1, 1));
+        var station = new LinkStation(point(2, 0), new Reach(1));
+        var device = new Device(point(0, 0));
 
         assertThat(station.powerFor(device)).isEqualTo(ZERO);
     }
@@ -22,7 +22,20 @@ public class LinkStationTest {
         var station = new LinkStation(point(0, 1), new Reach(4));
         var device = new Device(point(0, -1));
 
-        assertThat(station.powerFor(device)).isEqualTo(new Power(new BigDecimal(4)));
+        assertThat(station.powerFor(device)).isEqualTo(power(4));
+    }
+
+    @Test
+    void power_is_zero_when_distance_and_reach_are_the_same() {
+        var station = new LinkStation(point(0, 0), new Reach(1));
+        var device = new Device(point(0, -1));
+
+        assertThat(station.powerFor(device)).isEqualTo(ZERO);
+    }
+
+    private static Power power(int value) {
+        BigDecimal power = new BigDecimal(value);
+        return new Power(power);
     }
 
     private static Point point(int x, int y) {

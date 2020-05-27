@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import static java.math.BigDecimal.ZERO;
 import static java.math.RoundingMode.HALF_UP;
 import static org.apache.commons.lang3.Validate.isTrue;
+import static org.apache.commons.lang3.Validate.notNull;
 
 public class Distance {
     private static final int SCALE = 2;
@@ -18,7 +19,7 @@ public class Distance {
         this(new BigDecimal(value));
     }
 
-    public Distance(BigDecimal value) {
+    private Distance(BigDecimal value) {
         var v = value.setScale(SCALE, HALF_UP);
         isTrue(v.compareTo(ZERO) >= 0);
 
@@ -26,10 +27,14 @@ public class Distance {
     }
 
     public boolean isGreaterThan(Distance distance) {
+        notNull(distance);
+
         return value.compareTo(distance.value) > 0;
     }
 
     public Distance minus(Distance anotherDistance) {
+        notNull(anotherDistance);
+
         return new Distance(value.subtract(anotherDistance.value));
     }
 
