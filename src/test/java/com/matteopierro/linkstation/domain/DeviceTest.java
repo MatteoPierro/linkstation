@@ -2,6 +2,7 @@ package com.matteopierro.linkstation.domain;
 
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 public class DeviceTest {
@@ -11,6 +12,12 @@ public class DeviceTest {
         var device = new Device(point(-2, -2));
 
         assertThat(device.distanceFrom(point(-1, -1))).isEqualTo(new Distance(1.41));
+    }
+
+    @Test
+    void needs_a_position() {
+        assertThatThrownBy( () -> new Device(null))
+                .isInstanceOf(NullPointerException.class);
     }
 
     private static Point point(int x, int y) {

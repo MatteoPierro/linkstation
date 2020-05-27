@@ -1,10 +1,12 @@
 package com.matteopierro.linkstation.domain;
 
+import static org.apache.commons.lang3.Validate.notNull;
+
 public class Device {
     private final Point point;
 
     public Device(Point point) {
-        this.point = point;
+        this.point = notNull(point);
     }
 
     public Distance distanceFrom(Point point) {
