@@ -9,7 +9,7 @@ import static java.math.RoundingMode.HALF_UP;
 import static org.apache.commons.lang3.Validate.isTrue;
 import static org.apache.commons.lang3.Validate.notNull;
 
-public class Power {
+public class Power implements Comparable<Power> {
     public static final Power ZERO = new Power(BigDecimal.ZERO);
     private static final int SCALE = 2;
 
@@ -21,6 +21,15 @@ public class Power {
         isTrue(v.compareTo(BigDecimal.ZERO) >= 0);
 
         this.value = v;
+    }
+
+    public boolean isNotZero() {
+        return compareTo(ZERO) != 0;
+    }
+
+    @Override
+    public int compareTo(Power anotherPower) {
+        return value.compareTo(anotherPower.value);
     }
 
     @Override

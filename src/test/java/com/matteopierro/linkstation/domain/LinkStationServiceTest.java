@@ -23,7 +23,7 @@ public class LinkStationServiceTest {
     private LinkStationService service;
 
     @Test
-    void display_no_link_station_when_all_return_power_zero() {
+    void display_no_link_station_when_only_one_station_is_available_and_the_power_is_zero() {
         var station = new LinkStation(new Point(0, 0), new Reach(1));
         when(repository.findAll()).thenReturn(
                 Stream.of(station)
