@@ -1,4 +1,4 @@
-package com.matteopierro.linkstation;
+package com.matteopierro.linkstation.domain;
 
 import org.junit.jupiter.api.Test;
 
