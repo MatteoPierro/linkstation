@@ -1,6 +1,6 @@
 import Point from '../src/point';
 import LinkStation from '../src/link-station';
-import findBestStationFor from '../src/link-station-service';
+import findBestStationFor from '../src/best-link-station';
 
 describe('find best station for a point', () => {
     let display;

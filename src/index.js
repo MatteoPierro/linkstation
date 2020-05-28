@@ -1,7 +1,7 @@
 import { point } from './point';
 import { linkStation } from './link-station';
 import display from './display';
-import findBestStations from './point-service';
+import { findBestStations } from './best-link-station';
 
 const points = [
     point(0, 0),

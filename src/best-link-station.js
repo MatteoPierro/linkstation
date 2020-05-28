@@ -1,4 +1,10 @@
-export default function (point, stations, display) {
+export function findBestStations(points, stations, display) {
+    points.forEach( 
+        (point) => pointBestStation(point, stations, display)
+    );
+}
+
+export default function pointBestStation(point, stations, display) {
     const bestStation = stationWithMaximumPower(stations, point);
     if (bestStation) {
         display.bestLinkStationFor(point, bestStation);
