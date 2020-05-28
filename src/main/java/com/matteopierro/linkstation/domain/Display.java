@@ -6,5 +6,5 @@ import com.matteopierro.linkstation.domain.model.LinkStation;
 public interface Display {
     void noLinkStationFor(Device device);
 
-    void linkStationFor(Device device, LinkStation station);
+    void bestLinkStationFor(Device device, LinkStation station);
 }

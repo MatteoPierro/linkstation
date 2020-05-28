@@ -21,7 +21,7 @@ public class LinkStationService {
                 .max(byPowerFor(device))
                 .filter(byCharging(device))
                 .ifPresentOrElse(
-                        (station) -> display.linkStationFor(device, station),
+                        (station) -> display.bestLinkStationFor(device, station),
                         () -> display.noLinkStationFor(device)
                 );
     }

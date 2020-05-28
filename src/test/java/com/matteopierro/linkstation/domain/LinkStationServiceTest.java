@@ -49,11 +49,11 @@ public class LinkStationServiceTest {
         var device = new Device(new Point(0, -1));
         service.linkStationFor(device);
 
-        verify(display).linkStationFor(device, station);
+        verify(display).bestLinkStationFor(device, station);
     }
 
     @Test
-    void display_link_station_with_maximum_power() {
+    void display_as_best_link_station_the_one_with_maximum_power() {
         var maximumPowerStation = new LinkStation(new Point(0, 2), new Reach(8));
         var minimumPowerStation = new LinkStation(new Point(0, 1), new Reach(4));
         var zeroPowerStation = new LinkStation(new Point(0, 0), new Reach(1));
@@ -68,6 +68,6 @@ public class LinkStationServiceTest {
         var device = new Device(new Point(0, -1));
         service.linkStationFor(device);
 
-        verify(display).linkStationFor(device, maximumPowerStation);
+        verify(display).bestLinkStationFor(device, maximumPowerStation);
     }
 }

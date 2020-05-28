@@ -20,6 +20,10 @@ public class LinkStation {
         }
     }
 
+    public Point point() {
+        return point;
+    }
+
     @Override
     public String toString() {
         return "LinkStation at (" + point + ")";
