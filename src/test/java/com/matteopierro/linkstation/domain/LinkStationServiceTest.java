@@ -51,4 +51,23 @@ public class LinkStationServiceTest {
 
         verify(display).linkStationFor(device, station);
     }
+
+    @Test
+    void display_link_station_with_maximum_power() {
+        var maximumPowerStation = new LinkStation(new Point(0, 2), new Reach(8));
+        var minimumPowerStation = new LinkStation(new Point(0, 1), new Reach(4));
+        var zeroPowerStation = new LinkStation(new Point(0, 0), new Reach(1));
+        when(repository.findAll()).thenReturn(
+                Stream.of(
+                        minimumPowerStation,
+                        maximumPowerStation,
+                        zeroPowerStation
+                )
+        );
+
+        var device = new Device(new Point(0, -1));
+        service.linkStationFor(device);
+
+        verify(display).linkStationFor(device, maximumPowerStation);
+    }
 }

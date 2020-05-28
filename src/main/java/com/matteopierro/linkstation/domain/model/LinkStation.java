@@ -19,4 +19,9 @@ public class LinkStation {
             return reach.minus(distanceFromDevice).square();
         }
     }
+
+    @Override
+    public String toString() {
+        return "LinkStation at (" + point + ")";
+    }
 }

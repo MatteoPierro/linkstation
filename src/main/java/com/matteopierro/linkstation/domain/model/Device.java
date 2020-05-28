@@ -12,4 +12,9 @@ public class Device {
     public Distance distanceFrom(Point point) {
         return this.point.distanceFrom(point);
     }
+
+    @Override
+    public String toString() {
+        return "Device at (" + point + ")";
+    }
 }

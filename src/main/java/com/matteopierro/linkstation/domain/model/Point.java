@@ -26,4 +26,9 @@ public class Point {
     private static double square(int number) {
         return pow(number, 2);
     }
+
+    @Override
+    public String toString() {
+        return x + "," + y;
+    }
 }
