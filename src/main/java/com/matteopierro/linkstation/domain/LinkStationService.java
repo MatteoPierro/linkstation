@@ -18,9 +18,7 @@ public class LinkStationService {
                 .max(byPowerFor(device))
                 .filter(byCharging(device))
                 .ifPresentOrElse(
-                        (station) -> {
-                            throw new RuntimeException("Not Implemented yet");
-                        },
+                        (station) -> display.linkStationFor(device, station),
                         () -> display.noLinkStationFor(device)
                 );
     }

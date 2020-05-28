@@ -34,4 +34,17 @@ public class LinkStationServiceTest {
 
         verify(display).noLinkStationFor(device);
     }
+
+    @Test
+    void display_link_station_for_point_one_station_is_available_and_the_power_is_not_zero() {
+        var station = new LinkStation(new Point(0, 1), new Reach(4));
+        when(repository.findAll()).thenReturn(
+                Stream.of(station)
+        );
+
+        var device = new Device(new Point(0, -1));
+        service.linkStationFor(device);
+
+        verify(display).linkStationFor(device, station);
+    }
 }
