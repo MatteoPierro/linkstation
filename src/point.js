@@ -5,7 +5,12 @@ class Point {
     }
 
     distanceFrom(anotherPoint) {
-        return Math.abs(this.x - anotherPoint.x);
+        return Number(
+            Math.sqrt(
+                Math.pow(this.x - anotherPoint.x, 2) +
+                Math.pow(this.y - anotherPoint.y, 2)
+            ).toFixed(2)
+        );
     }
 }
 
