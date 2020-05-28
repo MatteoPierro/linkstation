@@ -14,4 +14,8 @@ class Point {
     }
 }
 
+export function point(x, y) {
+    return new Point(x, y);
+}
+
 export default Point;

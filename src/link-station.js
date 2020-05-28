@@ -1,4 +1,6 @@
-export default class LinkedStation {
+import Point from "./point";
+
+export default class LinkStation {
     constructor(point, reach) {
         this.point = point;
         this.reach = reach;
@@ -15,3 +17,5 @@ export default class LinkedStation {
         }
     }
 }
+
+export const linkStation = (x, y, reach) => new LinkStation(new Point(x, y), reach);

@@ -1,6 +1,6 @@
 import Point from '../src/point';
 
-describe("distance between points", () => {
+describe('distance between points', () => {
     it('returns distance zero for the same point', () => {
         expect(new Point(1,1).distanceFrom(new Point(1,1))).toBe(0);
     });
