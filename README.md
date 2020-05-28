@@ -30,3 +30,41 @@ or:
 
 Print out function output from **points**​ (x, y):
 (0,0), (100, 100), (15,10) and (18, 18).
+
+## How to run the solution
+
+### Requirements
+
+- Docker
+
+### Build
+
+```bash
+$ docker build -t linkstation .
+```
+
+### Run
+
+```bash
+$ docker run --rm linkstation
+```
+
+## Design notes
+
+The design decisions of this solution are mainly inspired by:
+
+- [Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software))
+- [Domain Primitives](https://freecontent.manning.com/domain-primitives-what-they-are-and-how-you-can-use-them-to-make-more-secure-software/)
+
+## Limitations
+
+### Persistence mechanism
+Currently the devices and the linked stations are stored in memory (see `InMemoryDeviceRepository` and `InMemoryLinkStationRepository`.
+
+It will be possible to plug a different persistence mechanism (e.g. Database, FileSystem, etc.) providing a different implementation of the repositories and injecting them in the services.
+
+### Display mechanism
+
+Currently the output is displayed in the system console.
+
+It will be possible to plug a different display mechanism (e.g. file, html, etc.) providing a different implementation of the `Display` interface.
