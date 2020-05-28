@@ -1,5 +1,9 @@
 package com.matteopierro.linkstation.domain;
 
+import com.matteopierro.linkstation.domain.model.Device;
+import com.matteopierro.linkstation.domain.model.LinkStation;
+import com.matteopierro.linkstation.domain.model.Point;
+import com.matteopierro.linkstation.domain.model.Reach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

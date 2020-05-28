@@ -1,4 +1,4 @@
-package com.matteopierro.linkstation.domain;
+package com.matteopierro.linkstation.domain.model;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;

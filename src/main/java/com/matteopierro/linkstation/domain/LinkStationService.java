@@ -1,5 +1,8 @@
 package com.matteopierro.linkstation.domain;
 
+import com.matteopierro.linkstation.domain.model.Device;
+import com.matteopierro.linkstation.domain.model.LinkStation;
+
 import java.util.Comparator;
 import java.util.function.Predicate;
 

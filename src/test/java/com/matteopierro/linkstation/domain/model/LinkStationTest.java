@@ -1,10 +1,10 @@
-package com.matteopierro.linkstation.domain;
+package com.matteopierro.linkstation.domain.model;
 
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static com.matteopierro.linkstation.domain.Power.ZERO;
+import static com.matteopierro.linkstation.domain.model.Power.ZERO;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class LinkStationTest {

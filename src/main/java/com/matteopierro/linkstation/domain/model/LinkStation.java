@@ -1,6 +1,6 @@
-package com.matteopierro.linkstation.domain;
+package com.matteopierro.linkstation.domain.model;
 
-import static com.matteopierro.linkstation.domain.Power.ZERO;
+import static com.matteopierro.linkstation.domain.model.Power.ZERO;
 
 public class LinkStation {
     private final Point point;

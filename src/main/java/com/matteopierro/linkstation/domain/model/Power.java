@@ -1,57 +1,47 @@
-package com.matteopierro.linkstation.domain;
+package com.matteopierro.linkstation.domain.model;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import java.math.BigDecimal;
 
-import static java.math.BigDecimal.ZERO;
 import static java.math.RoundingMode.HALF_UP;
 import static org.apache.commons.lang3.Validate.isTrue;
 import static org.apache.commons.lang3.Validate.notNull;
 
-public class Distance {
+public class Power implements Comparable<Power> {
+    public static final Power ZERO = new Power(BigDecimal.ZERO);
     private static final int SCALE = 2;
 
     private final BigDecimal value;
 
-    public Distance(double value) {
-        this(new BigDecimal(value));
-    }
-
-    private Distance(BigDecimal value) {
+    public Power(BigDecimal value) {
+        notNull(value);
         var v = value.setScale(SCALE, HALF_UP);
-        isTrue(v.compareTo(ZERO) >= 0);
+        isTrue(v.compareTo(BigDecimal.ZERO) >= 0);
 
         this.value = v;
     }
 
-    public boolean isGreaterThan(Distance distance) {
-        notNull(distance);
-
-        return value.compareTo(distance.value) > 0;
+    public boolean isNotZero() {
+        return compareTo(ZERO) != 0;
     }
 
-    public Distance minus(Distance anotherDistance) {
-        notNull(anotherDistance);
-
-        return new Distance(value.subtract(anotherDistance.value));
-    }
-
-    public Power square() {
-        return new Power(value.pow(2));
+    @Override
+    public int compareTo(Power anotherPower) {
+        return value.compareTo(anotherPower.value);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
-        if (!(o instanceof Distance)) return false;
+        if (!(o instanceof Power)) return false;
 
-        Distance distance = (Distance) o;
+        Power power = (Power) o;
 
         return new EqualsBuilder()
-                .append(value, distance.value)
+                .append(value, power.value)
                 .isEquals();
     }
 

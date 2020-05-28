@@ -1,4 +1,4 @@
-package com.matteopierro.linkstation.domain;
+package com.matteopierro.linkstation.domain.model;
 
 public class Reach extends Distance{
     public Reach(double value) {

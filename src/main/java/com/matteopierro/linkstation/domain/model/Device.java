@@ -1,4 +1,4 @@
-package com.matteopierro.linkstation.domain;
+package com.matteopierro.linkstation.domain.model;
 
 import static org.apache.commons.lang3.Validate.notNull;
 
