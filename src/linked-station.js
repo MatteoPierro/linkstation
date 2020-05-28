@@ -5,6 +5,13 @@ export default class LinkedStation {
     }
 
     powerFor(anotherPoint) {
-        return 100;
+        const distance = anotherPoint.distanceFrom(this.point);
+        if (distance > this.reach) {
+            return 0;
+        } else {
+            return Number(
+                Math.pow(this.reach - distance, 2).toFixed(2)
+            );
+        }
     }
 }
