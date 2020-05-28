@@ -1,14 +1,15 @@
 package com.matteopierro.linkstation.domain.model;
 
 import static com.matteopierro.linkstation.domain.model.Power.ZERO;
+import static org.apache.commons.lang3.Validate.notNull;
 
 public class LinkStation {
     private final Point point;
     private final Reach reach;
 
     public LinkStation(Point point, Reach reach) {
-        this.point = point;
-        this.reach = reach;
+        this.point = notNull(point);
+        this.reach = notNull(reach);
     }
 
     public Power powerFor(Device device) {

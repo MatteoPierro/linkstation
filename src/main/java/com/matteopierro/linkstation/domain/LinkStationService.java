@@ -4,7 +4,9 @@ import com.matteopierro.linkstation.domain.model.Device;
 import com.matteopierro.linkstation.domain.model.LinkStation;
 
 import java.util.Comparator;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class LinkStationService {
 
@@ -17,13 +19,17 @@ public class LinkStationService {
     }
 
     public void linkStationFor(Device device) {
-        repository.findAll()
+        linkStations()
                 .max(byPowerFor(device))
                 .filter(byCharging(device))
                 .ifPresentOrElse(
-                        (station) -> display.bestLinkStationFor(device, station),
-                        () -> display.noLinkStationFor(device)
+                        displayBestLinkStationFor(device),
+                        orDisplayNoLinkStationFor(device)
                 );
+    }
+
+    private Stream<LinkStation> linkStations() {
+        return repository.findAll();
     }
 
     private Comparator<LinkStation> byPowerFor(Device device) {
@@ -32,5 +38,13 @@ public class LinkStationService {
 
     private Predicate<LinkStation> byCharging(Device device) {
         return linkStation -> linkStation.powerFor(device).isNotZero();
+    }
+
+    private Consumer<LinkStation> displayBestLinkStationFor(Device device) {
+        return (station) -> display.bestLinkStationFor(device, station);
+    }
+
+    private Runnable orDisplayNoLinkStationFor(Device device) {
+        return () -> display.noLinkStationFor(device);
     }
 }
