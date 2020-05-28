@@ -30,3 +30,21 @@ or:
 
 Print out function output from **points**​ (x, y):
 (0,0), (100, 100), (15,10) and (18, 18).
+
+## How to run the solution
+
+### Requirements
+
+- Docker
+
+### Build
+
+```bash
+$ docker build -t linkstation .
+```
+
+### Run
+
+```bash
+$ docker run --rm linkstation
+```
