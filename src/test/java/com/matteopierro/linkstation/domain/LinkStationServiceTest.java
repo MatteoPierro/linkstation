@@ -34,7 +34,7 @@ public class LinkStationServiceTest {
         );
 
         var device = new Device(new Point(0, -1));
-        service.linkStationFor(device);
+        service.bestLinkStationFor(device);
 
         verify(display).noLinkStationFor(device);
     }
@@ -47,7 +47,7 @@ public class LinkStationServiceTest {
         );
 
         var device = new Device(new Point(0, -1));
-        service.linkStationFor(device);
+        service.bestLinkStationFor(device);
 
         verify(display).bestLinkStationFor(device, station);
     }
@@ -66,7 +66,7 @@ public class LinkStationServiceTest {
         );
 
         var device = new Device(new Point(0, -1));
-        service.linkStationFor(device);
+        service.bestLinkStationFor(device);
 
         verify(display).bestLinkStationFor(device, maximumPowerStation);
     }

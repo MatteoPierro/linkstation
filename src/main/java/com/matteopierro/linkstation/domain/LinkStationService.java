@@ -18,7 +18,7 @@ public class LinkStationService {
         this.display = display;
     }
 
-    public void linkStationFor(Device device) {
+    public void bestLinkStationFor(Device device) {
         linkStations()
                 .max(byPowerFor(device))
                 .filter(byCharging(device))

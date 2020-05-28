@@ -34,7 +34,7 @@ class DeviceServiceTest {
 
         deviceService.findLinkStations();
 
-        verify(linkStationService).linkStationFor(firstDevice);
-        verify(linkStationService).linkStationFor(secondDevice);
+        verify(linkStationService).bestLinkStationFor(firstDevice);
+        verify(linkStationService).bestLinkStationFor(secondDevice);
     }
 }

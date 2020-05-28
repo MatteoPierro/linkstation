@@ -10,6 +10,6 @@ public class DeviceService {
     }
 
     public void findLinkStations() {
-        deviceRepository.findAll().forEach(linkStationService::linkStationFor);
+        deviceRepository.findAll().forEach(linkStationService::bestLinkStationFor);
     }
 }
