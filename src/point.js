@@ -1,5 +1,12 @@
-export default function(x, y) {
-    return {
-        distanceFrom: (anotherPoint) => 0 
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
-};
+
+    distanceFrom(anotherPoint) {
+        return Math.abs(this.x - anotherPoint.x);
+    }
+}
+
+export default Point;
